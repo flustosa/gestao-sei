@@ -10,6 +10,8 @@ check: ## Verifica a existência do arquivo ".env"
 		echo "Arquivo .env não encontrado. Criando um novo a partir do template env.env, ajuste os parâmetros para rodar o programa." >&2 ; \
 		cp env.env .env; \
 		exit 1; \
+	else \
+		echo "Arquivo .env encontrado. Ajuste os parâmetros para rodar o programa." ; \
 	fi
 
 env: ## Cria e acessa o ambiente virutal do python e instala os requisitos.
