@@ -1,0 +1,15 @@
+# WARNING!! This is to build from source
+
+name: gestao-sei
+services:
+  gestao-sei:
+    build: .
+    volumes:
+      - "./data/app_sei/migrations:/gestao-sei/app_sei/migrations" # Diretório 
+      - "./data/instance:/gestao-sei/instance" # Diretório onde o arquivo Sqlite (webapp.db) é salvo. 
+    ports:
+      - "8000:5000"
+    env_file:
+      - .env
+    restart: unless-stopped
+

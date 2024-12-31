@@ -1,0 +1,18 @@
+{% include "base.html" %}
+
+{% block body %}
+
+<br xmlns="http://www.w3.org/1999/html"><br>
+<div class="container">
+    <div class="row mb-3">
+            <p>Bem vindo, {{ user_session['sigla_usuario']|replace(".", " ")|title}}!</p>
+            <p>Seus dados de login são:</p>
+
+        <p><b>Sigla do usuário:</b> {{ user_session['sigla_usuario'] }}</p>
+        <p><b>Nome completo:</b> {{ user_session['nome_completo'] }}</p>
+
+
+    </div>
+</div>
+
+{% endblock %}

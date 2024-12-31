@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<div class="container">
+<h3>Configurações</h3>
+<br>
+<form method="POST" action="" class="border p-4 mb-3 w-50" id="form">
+  {{ form.csrf_token }}
+    <fieldset>
+      <div class="row mb-3">
+        {{ form.orgao.label(class="col-sm-3 col-form-label") }}
+        {% if form.orgao.errors %}
+            {{ form.orgao(class="form-control is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.orgao.errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+          {% else %}
+          <div class="col-sm-9">
+            {{ form.orgao(class="form-control") }}
+                <div class="form-text" id="basic-addon4">O padrão é o número do órgão ser 0 (zero), em instalacoes multiórgãos do SEI, pode haver variacão.</div>
+          </div>
+            {% endif %}
+      </div>
+
+      <div class="row mb-3">
+          {{ form.sigla_orgao.label(class="col-sm-3 col-form-label") }}
+         {% if form.sigla_orgao.errors %}
+            {{ form.sigla_orgao(class="form-control is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.sigla_orgao.errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+          {% else %}
+        <div class="col-sm-9">
+            {{ form.sigla_orgao(class="form-control") }}
+        </div>
+            {% endif %}
+      </div>
+
+      <div class="row mb-3">
+          {{ form.sigla_sistema.label(class="col-sm-3 col-form-label") }}
+                {% if form.sigla_sistema.errors %}
+            {{ form.sigla_sistema(class="form-control is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.sigla_sistema.errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+          {% else %}
+           <div class="col-sm-9">
+            {{ form.sigla_sistema(class="form-control") }}
+               <div class="form-text" id="basic-addon">Sigla que foi configurada no menu "Administracão/Sistemas"</div>
+           </div>
+            {% endif %}
+      </div>
+
+      <div class="row mb-3">
+          {{ form.unidade_bloqueio.label(class="col-sm-3 col-form-label") }}
+         {% if form.unidade_bloqueio.errors %}
+            {{ form.unidade_bloqueio(class="form-control is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.unidade_bloqueio.errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+          {% else %}
+          <div class="col-sm-9">
+            {{ form.unidade_bloqueio(class="form-control") }}
+              <div class="form-text" id="basic-addon">Número da unidade onde os processos serão bloqueados</div>
+          </div>
+            {% endif %}
+          </div>
+
+      <div class="row mb-3">
+          {{ form.token.label(class="col-sm-3 col-form-label") }}
+         {% if form.token.errors %}
+            {{ form.token(class="form-control is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.token.errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+          {% else %}
+           <div class="col-sm-9">
+            {{ form.token(class="form-control") }}
+               <div class="form-text" id="basic-addon">Chave de acesso obtida na configuracao do Sistema no menu "Administracão/Sistemas"</div>
+           </div>
+            {% endif %}
+      </div>
+
+      <div class="row mb-3">
+          {{ form.validacao_processo.label(class="col-sm-3 col-form-label") }}
+           <div class="col-sm-9">
+               <div class="form-text" id="basic-addon">
+                   {{ form.validacao_processo(class="form-check-input") }} &nbsp;Valida o NUP com 15 dígitos e 2 DV.</div>
+           </div>
+      </div>
+
+      <div class="row mb-2 justify-content-center">
+        <div class="col-sm-2">
+          {{ form.botao_submit(class="btn btn-primary mt-2") }}
+        </div>
+      </div>
+        <fieldset>
+  </form>
+</div>
+
+
+{% endblock %}
+
